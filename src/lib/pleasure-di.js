@@ -41,6 +41,11 @@ export const pleasureDi = (resolvers) => {
 
   const container = new Proxy({}, {
     get (target, path) {
+      // avoid promises
+      if (path === 'then') {
+        return
+      }
+
       const matchingContainer = containerMayExist(path)
       if (!matchingContainer) {
         throw new Error(`No suffixed container name registered matching ${path}`)
