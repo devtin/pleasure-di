@@ -1,5 +1,5 @@
 /*!
- * pleasure-di v1.0.0
+ * pleasure-di v1.1.0
  * (c) 2020-2021 Martin Rafael Gonzalez <tin@devtin.io>
  * MIT
  */
@@ -46,6 +46,11 @@ const pleasureDi = (resolvers) => {
 
   const container = new Proxy({}, {
     get (target, path) {
+      // avoid promises
+      if (path === 'then') {
+        return
+      }
+
       const matchingContainer = containerMayExist(path);
       if (!matchingContainer) {
         throw new Error(`No suffixed container name registered matching ${path}`)

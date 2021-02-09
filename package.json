@@ -6,7 +6,7 @@
     "injection"
   ],
   "author": "Martin Rafael Gonzalez <tin@devtin.io>",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/pleasure-di.js",
   "module": "dist/pleasure-di.mjs",
   "license": "MIT",
